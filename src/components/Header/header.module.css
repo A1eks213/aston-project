@@ -1,0 +1,47 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: linear-gradient(90deg,#cd122d 0,#154284);
+}
+.logo {
+    display: flex;
+    font-size: 40px;
+    color: #fdc52c;
+    cursor: pointer;
+    align-items: center;
+}
+.logoImg {
+    max-width: 50px;
+    margin-right: 10px;
+}
+.navList {
+    display: flex;
+
+}
+.navItem {
+    margin-right: 20px;
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #fdc52c;
+    color: #121121;
+    border: 1px solid #fdc52c;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.navItem:last-child {
+    margin-right: 0;
+}
+.avatar {
+    display: inline-block;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    color: #fdc52c;
+    border-radius: 25px;
+    background-color: #cd122d;
+    font-size: 30px;
+    line-height: 50px;
+}
