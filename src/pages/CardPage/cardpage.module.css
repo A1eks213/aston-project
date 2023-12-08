@@ -1,0 +1,44 @@
+.cardPage {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 30px;
+}
+.cardTitle {
+    margin-bottom: 10px;
+    font-size: 50px;
+    color: #fdc52c;
+}
+.imgContainer {
+    margin-right: 50px;
+    padding: 15px;
+    border: 1px solid #fdc52c;
+    background: linear-gradient(90deg,#cd122d,#154284);
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+.img {
+    width: 200px;
+    height: 450px;
+    object-fit: fill;
+}
+.cardInfo {
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+.number {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+    width: 100%;
+    font-size: 200px;
+    font-weight: bold;
+    color: #fdc52c;
+    
+}
+.position, .age, .price {
+    color: white;
+    text-align: start;
+    font-size: 40px;
+}
