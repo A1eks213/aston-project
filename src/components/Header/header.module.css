@@ -30,6 +30,7 @@
     border: 1px solid #fdc52c;
     border-radius: 5px;
     font-weight: bold;
+    cursor: pointer;
 }
 .navItem:last-child {
     margin-right: 0;

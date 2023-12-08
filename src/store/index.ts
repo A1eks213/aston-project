@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import userReducer from './slices/userSlice'
-import { playersApi } from '../RTKQuery/getPlayersApi';
+import { playersApi } from '../RTKQuery/playersApi';
 export const store = configureStore({
   reducer: {
     user: userReducer,

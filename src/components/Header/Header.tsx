@@ -18,14 +18,14 @@ export function Header() {
         BarçaPlayers
       </Link>
       <nav className={styles.navList}>
-        <Link to='/favorites' className={styles.navItem}>
-          Избранное
-        </Link>
-        <Link to='/history' className={styles.navItem}>
-          История
-        </Link>
         {isAuth ? (
           <>
+            <Link to='/favorites' className={styles.navItem}>
+              Избранное
+            </Link>
+            <Link to='/history' className={styles.navItem}>
+              История
+            </Link>
             <button
               className={styles.navItem}
               onClick={() => {

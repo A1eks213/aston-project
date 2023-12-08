@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './homepage.module.css';
 import { Card } from '../../components/Card';
-import { useGetPlayersQuery } from '../../RTKQuery/getPlayersApi';
+import { useGetPlayersQuery } from '../../RTKQuery/playersApi';
 export default function HomePage() {
 
   // const { isAuth, email } = useAuth();

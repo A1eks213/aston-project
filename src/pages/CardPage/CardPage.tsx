@@ -1,6 +1,6 @@
 import {Suspense} from 'react';
 import { useParams } from 'react-router-dom';
-import { useGetPlayerByIdQuery } from '../../RTKQuery/getPlayersApi';
+import { useGetPlayerByIdQuery } from '../../RTKQuery/playersApi';
 import styles from './cardpage.module.css';
 
 export default function CardPage() {

@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useEffect } from 'react';
+import React, { Suspense, lazy } from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
@@ -16,22 +16,19 @@ const CardPage = lazy(() => import("../src/pages/CardPage/CardPage"));
 
 function App() {
   const dispatch = useDispatch();
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        dispatch(setUser({
-          email: user.email,
-          id: user.uid,
-          token: user.refreshToken,
-        }
-        ))
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      dispatch(setUser({
+        email: user.email,
+        id: user.uid,
       }
-    })
-  }, [dispatch])
+      ))
+    }
+  })
   return (
     <div className="App">
       <Header />
-      <Suspense fallback={<Loader/>}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path='/login' element={<LoginPage />} />
           <Route path='/register' element={<RegisterPage />} />
