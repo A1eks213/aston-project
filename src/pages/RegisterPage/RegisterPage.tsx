@@ -12,7 +12,7 @@ export default function RegisterPage() {
     .then(() => {
       navigate('/');
     })
-    .catch(console.error) 
+    .catch(() => alert('Пользователь с данным email уже зарегестрирован!')) 
 
   }
   return (

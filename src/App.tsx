@@ -20,7 +20,7 @@ function App() {
     if (user) {
       dispatch(setUser({
         email: user.email,
-        id: user.uid,
+        uid: user.uid,
       }
       ))
     }
