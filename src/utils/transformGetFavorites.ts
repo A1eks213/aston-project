@@ -1,14 +1,10 @@
 import { ResponseParams } from "../RTKQuery/favoritesApi";
 import { IPlayer } from "../RTKQuery/playersApi";
 
-export function transformGetFavorites(data: ResponseParams | null | undefined) {
+export function transformGetFavorites(data: ResponseParams | null | undefined): IPlayer[] {
   if (data) {
     const dataArray = Object.values(data)
-    const result: IPlayer[] = []
-    dataArray.forEach((item) => {
-      result.push(Object.values(item)[0])
-    })
-    return result
+    return dataArray.map((x) => Object.values(x)[0])
   } else {
     return []
   }

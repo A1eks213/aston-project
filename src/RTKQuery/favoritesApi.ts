@@ -1,9 +1,4 @@
-
-'https://aston-project-cc0a5-default-rtdb.europe-west1.firebasedatabase.app/'
-
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-
-
 import { IPlayer } from "./playersApi";
 import { transformGetFavorites } from "../utils/transformGetFavorites";
 
@@ -35,7 +30,7 @@ export const favoritesApi = createApi({
       },
       providesTags: ["FavoritePage"],
       // @ts-ignore
-      transformResponse: (data: ResponseParams | undefined) => transformGetFavorites(data),
+      transformResponse: transformGetFavorites,
     }),
     addInFavorites: build.mutation({
       query: ({ player, uid }) => {

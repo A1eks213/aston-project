@@ -12,7 +12,7 @@ type ICard = {
 export function Card({ player }: ICard) {
   const [addFavorites] = useAddInFavoritesMutation();
   const [removeFavorites] = useRemoveFromFavoritesMutation();
-  const { uid } = useAppSelector(state => state.user)
+  const uid = useAppSelector(state => state.user.uid)
   const { data: isFavorite} = useGetFavoritesByIdQuery({
     id: player.id,
     uid: String(uid),

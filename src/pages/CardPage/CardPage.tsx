@@ -9,7 +9,7 @@ import { Loader } from '../../components/Loader';
 
 export default function CardPage() {
   const {id} = useParams();
-  const { uid } = useAppSelector(state => state.user)
+  const uid  = useAppSelector(state => state.user.uid)
   const { data: player, isLoading } = useGetPlayerByIdQuery(String(id));
   const [addFavorites] = useAddInFavoritesMutation();
   const [removeFavorites] = useRemoveFromFavoritesMutation();

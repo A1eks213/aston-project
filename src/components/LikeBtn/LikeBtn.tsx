@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styles from './likebtn.module.css';
 import { ResponseParams } from '../../RTKQuery/favoritesApi';
 
