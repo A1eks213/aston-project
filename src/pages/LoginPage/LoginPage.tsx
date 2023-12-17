@@ -13,9 +13,7 @@ export default function LoginPage() {
       .then(({user}) => {
         navigate('/');
       })
-      .catch((error) => {
-        alert('Неверные данные' + error)
-      })
+      .catch(() => alert('Неверно введены данные!'))
 
 
   }

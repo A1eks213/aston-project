@@ -6,7 +6,7 @@ interface IParams {
   search?: string | null;
 }
 
-interface IPlayer {
+export interface IPlayer {
   name: string,
   age: number,
   price: number,
