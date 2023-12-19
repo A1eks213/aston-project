@@ -1,0 +1,24 @@
+.suggestList{
+    padding: 10px;
+    flex-direction: column;
+    width: 300px;
+    background-color: white;
+    position: absolute;
+    right: 20px;
+    top: 56px;
+    border: 2px solid #fdc52c;
+    border-top: none;
+    z-index: 2;
+}
+.suggestItem {
+    font-family: 'FCBarcelona';
+    padding: 5px;
+    text-align: start;
+    color: black;
+    font-size: 20px;
+}
+.suggestItemNumber{
+    font-family: 'FCBarcelona';
+    padding: 10px;
+    color: #fdc52c;
+}

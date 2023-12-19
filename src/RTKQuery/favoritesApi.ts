@@ -29,7 +29,6 @@ export const favoritesApi = createApi({
         };
       },
       providesTags: ["FavoritePage"],
-      // @ts-ignore
       transformResponse: transformGetFavorites,
     }),
     addInFavorites: build.mutation({

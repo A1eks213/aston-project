@@ -22,11 +22,15 @@
     padding-left: 10px;
 }
 .name {
+    font-family: 'FCBarcelona';
     font-size: 24px;
     text-align: center;
     color: white;
+    letter-spacing: 0.05em;
+    font-weight: 400;
 }
 .number {
+    font-family: 'FCBarcelona';
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: center;

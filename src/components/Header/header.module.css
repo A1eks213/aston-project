@@ -7,6 +7,7 @@
     background: linear-gradient(90deg,#cd122d 0,#154284);
 }
 .logo {
+    font-family: 'FCBarcelona';
     display: flex;
     font-size: 40px;
     color: #fdc52c;
@@ -45,4 +46,5 @@
     background-color: #cd122d;
     font-size: 30px;
     line-height: 50px;
+    font-family: 'FCBarcelona';
 }

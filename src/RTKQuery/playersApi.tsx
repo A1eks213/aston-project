@@ -3,7 +3,9 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 const BASE_URL = 'https://656895329927836bd97515e3.mockapi.io/barca/app/';
 
 interface IParams {
-  search?: string | null;
+  name?: string | null;
+  limit?: number,
+  page?: number,
 }
 
 export interface IPlayer {
@@ -24,10 +26,10 @@ export const playersApi = createApi({
       }),
     }),
     getPlayersBySearch: builder.query<IPlayer[], IParams>({
-      query: ({ search }) => {
+      query: ({ name }) => {
         return {
           url: 'players',
-          params: { search },
+          params: { name },
         };
       },
     }),
@@ -36,10 +38,19 @@ export const playersApi = createApi({
         url: `players/${id}`,
       }),
     }),
+    getPlayersBySearchSuggest: builder.query<IPlayer[], IParams>({
+      query: ({ name, limit = 5, page = 1 }) => {
+        return {
+          url: 'players',
+          params: { name, limit, page },
+        };
+      },
+    }),
   })
 })
 export const  { 
   useGetPlayersQuery,
   useGetPlayersBySearchQuery,
   useGetPlayerByIdQuery,
+  useGetPlayersBySearchSuggestQuery
 } = playersApi

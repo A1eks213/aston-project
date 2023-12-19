@@ -1,15 +1,16 @@
-import React from 'react';
-import styles from './homepage.module.css';
+import React, { useContext } from 'react';
 import { Card } from '../../components/Card';
 import { useGetPlayersQuery } from '../../RTKQuery/playersApi';
 import { Loader } from '../../components/Loader';
+import { IsSearchBarVisible } from '../../context/SearchbarContext';
 export default function HomePage() {
-
-  // const { isAuth, email } = useAuth();
-  const { data: players, isLoading} = useGetPlayersQuery();
-  if (isLoading) return <Loader/>
+  const { data: players, isLoading } = useGetPlayersQuery();
+  const { setIsSearchBarVisible } = useContext(IsSearchBarVisible);
+  setIsSearchBarVisible(true)
+  if (isLoading) return <Loader />
   return (
-      <div className={styles.homePage}>
+    <div className='container'>
+      <div className='gridContainer'>
         {players && (
           <>
             {players.map((p) => (
@@ -19,5 +20,6 @@ export default function HomePage() {
           </>
         )}
       </div>
+    </div>
   );
 }
