@@ -18,8 +18,7 @@ const CardPage = lazy(() => import("../src/pages/CardPage/CardPage"));
 
 function App() {
   const location = useLocation();
-  const isHomePage = location.pathname === '/'
-  console.log(isHomePage)
+  const isHomePage = location.pathname === '/';
   const dispatch = useDispatch();
   onAuthStateChanged(auth, (user) => {
     if (user) {

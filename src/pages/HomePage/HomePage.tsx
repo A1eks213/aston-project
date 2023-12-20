@@ -1,4 +1,3 @@
-import React, { useContext } from 'react';
 import { Card } from '../../components/Card';
 import { useGetPlayersQuery } from '../../RTKQuery/playersApi';
 import { Loader } from '../../components/Loader';
