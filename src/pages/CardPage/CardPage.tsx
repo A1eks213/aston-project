@@ -1,8 +1,7 @@
-import {Suspense} from 'react';
 import { useParams } from 'react-router-dom';
-import { useGetPlayerByIdQuery } from '../../RTKQuery/playersApi';
+import { useGetPlayerByIdQuery } from '../../redux/RTKQuery/playersApi';
 import styles from './cardpage.module.css';
-import { useAddInFavoritesMutation, useGetFavoritesByIdQuery, useRemoveFromFavoritesMutation } from '../../RTKQuery/favoritesApi';
+import { useAddInFavoritesMutation, useGetFavoritesByIdQuery, useRemoveFromFavoritesMutation } from '../../redux/RTKQuery/favoritesApi';
 import { useAppSelector } from '../../hooks/reduxHooks';
 import { LikeBtn } from '../../components/LikeBtn';
 import { Loader } from '../../components/Loader';
@@ -35,9 +34,7 @@ export default function CardPage() {
             <h1 className={styles.cardTitle}>{player.name}</h1>
             <div className={styles.cardInfo}>
               <div className={styles.imgContainer}>
-                <Suspense fallback='загрузка...'>
                   <img src={player.img} alt={player.name} className={styles.img} />
-                </Suspense>
               </div>
               <div className={styles.info}>
                 <p className={styles.number}>{id}</p>

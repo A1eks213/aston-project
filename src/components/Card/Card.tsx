@@ -1,9 +1,10 @@
 import styles from './card.module.css';
 import { Link } from 'react-router-dom';
 import { LikeBtn } from '../LikeBtn';
-import { IPlayer } from '../../RTKQuery/playersApi';
-import { useAddInFavoritesMutation, useGetFavoritesByIdQuery, useRemoveFromFavoritesMutation } from '../../RTKQuery/favoritesApi';
+import { IPlayer } from '../../redux/RTKQuery/playersApi';
+import { useAddInFavoritesMutation, useGetFavoritesByIdQuery, useRemoveFromFavoritesMutation } from '../../redux/RTKQuery/favoritesApi';
 import { useAppSelector } from '../../hooks/reduxHooks';
+import PropTypes from "prop-types";
 
 type ICard = {
   player: IPlayer
@@ -41,3 +42,14 @@ export function Card({ player }: ICard) {
     </Link>
   );
 }
+
+Card.propTypes = {
+  plr: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    age: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    position: PropTypes.string.isRequired,
+    img: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+  }),
+};

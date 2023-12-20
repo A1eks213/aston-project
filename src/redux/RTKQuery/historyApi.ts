@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { transformGetHistory } from "../utils/transformGetHistory";
+import { transformGetHistory } from "../../utils/transformGetHistory";
 
 const BASE_URL = "https://aston-project-cc0a5-default-rtdb.europe-west1.firebasedatabase.app/";
 

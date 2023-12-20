@@ -1,5 +1,5 @@
-import { ResponseParams } from "../RTKQuery/favoritesApi";
-import { IPlayer } from "../RTKQuery/playersApi";
+import { ResponseParams } from "../redux/RTKQuery/favoritesApi";
+import { IPlayer } from "../redux/RTKQuery/playersApi";
 
 export function transformGetFavorites(data: ResponseParams | null | undefined): IPlayer[] {
   if (data) {

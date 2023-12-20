@@ -1,5 +1,5 @@
 import styles from './likebtn.module.css';
-import { ResponseParams } from '../../RTKQuery/favoritesApi';
+import { ResponseParams } from '../../redux/RTKQuery/favoritesApi';
 
 interface ILikeButton {
   isFavorite: ResponseParams | undefined | null;

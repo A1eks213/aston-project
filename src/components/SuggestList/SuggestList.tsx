@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useGetPlayersBySearchSuggestQuery } from '../../RTKQuery/playersApi';
+import { useGetPlayersBySearchSuggestQuery } from '../../redux/RTKQuery/playersApi';
 import styles from './suggestlist.module.css';
 
 interface ISuggestList {

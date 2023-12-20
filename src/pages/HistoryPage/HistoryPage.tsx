@@ -1,4 +1,4 @@
-import { useGetHistoryQuery } from '../../RTKQuery/historyApi';
+import { useGetHistoryQuery } from '../../redux/RTKQuery/historyApi';
 import { useAppSelector } from '../../hooks/reduxHooks';
 import { Loader } from '../../components/Loader';
 import styles from './historypage.module.css';
