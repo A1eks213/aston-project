@@ -1,14 +1,16 @@
-import React, { Suspense, lazy} from 'react';
+import React, { Suspense, lazy } from 'react';
 import './App.css';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { Header } from './components/Header';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
-import { setUser } from './store/slices/userSlice';
 import { auth } from './firebase';
 import { Loader } from './components/Loader';
 import { SearchBar } from './components/SearchBar';
 import { SearchPage } from './pages/SearchPage';
+import { ErrorBoundary } from 'react-error-boundary';
+import { Fallback } from './components/Fallback';
+import { setUser } from './redux/store/slices/userSlice';
 const HomePage = lazy(() => import("../src/pages/HomePage/HomePage"));
 const LoginPage = lazy(() => import("../src/pages/LoginPage/LoginPage"));
 const RegisterPage = lazy(() => import("../src/pages/RegisterPage/RegisterPage"));
@@ -31,9 +33,10 @@ function App() {
   })
   return (
     <div className="App">
+      <ErrorBoundary FallbackComponent={Fallback}>
+        <Suspense fallback={<Loader />}>
         <Header />
         {isHomePage && <SearchBar />}
-        <Suspense fallback={<Loader />}>
           <Routes>
             <Route path='/login' element={<LoginPage />} />
             <Route path='/register' element={<RegisterPage />} />
@@ -42,8 +45,10 @@ function App() {
             <Route path='/' element={<HomePage />} />
             <Route path='/player/:id' element={<CardPage />} />
             <Route path='/searchPage' element={<SearchPage />} />
+            <Route path='*' element={<HomePage />} />
           </Routes>
         </Suspense>
+      </ErrorBoundary>
     </div>
   );
 }

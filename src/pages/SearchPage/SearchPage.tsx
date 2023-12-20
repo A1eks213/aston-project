@@ -1,6 +1,6 @@
 import styles from './searchpage.module.css';
 import { useSearchParams } from 'react-router-dom';
-import { useGetPlayersBySearchQuery } from '../../RTKQuery/playersApi';
+import { useGetPlayersBySearchQuery } from '../../redux/RTKQuery/playersApi';
 import { Card } from '../../components/Card';
 import { Loader } from '../../components/Loader';
 

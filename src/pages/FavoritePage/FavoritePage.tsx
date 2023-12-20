@@ -1,4 +1,4 @@
-import { useGetFavoritesQuery } from '../../RTKQuery/favoritesApi';
+import { useGetFavoritesQuery } from '../../redux/RTKQuery/favoritesApi';
 import { useAppSelector } from '../../hooks/reduxHooks';
 import { Card } from '../../components/Card';
 import { Loader } from '../../components/Loader';
@@ -8,17 +8,16 @@ export default function FavoritePage() {
   const { data = [], isLoading } = useGetFavoritesQuery(String(uid));
   return (
     <div className='container'>
-      <div className='gridContainer'>
       {data && isLoading ? (
         <Loader />
       ) : (
-      <>
+        <div className='gridContainer'>
           {data.map((p) => (
             <Card player={p} key={p.id}
             />
           ))}
-      </>)}
-    </div>
+        </div>
+      )}
     </div>
   );
 }

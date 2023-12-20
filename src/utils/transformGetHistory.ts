@@ -1,4 +1,4 @@
-import { HistoryResponse } from "../RTKQuery/historyApi";
+import { HistoryResponse } from "../redux/RTKQuery/historyApi";
 
 export function transformGetHistory(data: HistoryResponse | undefined | null) : [string, string][] | [] {
     if (data) {

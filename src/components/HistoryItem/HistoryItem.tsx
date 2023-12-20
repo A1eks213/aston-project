@@ -1,9 +1,9 @@
-import React from 'react';
 import styles from './historyitem.module.css';
 import { Link } from 'react-router-dom';
 import deleteImg from '../../images/delete.png'
-import { useRemoveFromHistoryMutation } from '../../RTKQuery/historyApi';
+import { useRemoveFromHistoryMutation } from '../../redux/RTKQuery/historyApi';
 import { useAppSelector } from '../../hooks/reduxHooks';
+import PropTypes from "prop-types";
 
 interface IHistoryItem {
   searchValue: string,
@@ -23,4 +23,8 @@ export function HistoryItem({searchValue, uniqId}: IHistoryItem) {
       </button>
     </div>
   );
+}
+HistoryItem.propTypes = {
+  searchValue: PropTypes.string.isRequired,
+  uniqId: PropTypes.string.isRequired,
 }

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './searchbar.module.css';
 import searchImg from '../../images/search.png'
 import { useNavigate } from 'react-router-dom';
-import { useAddInHistoryMutation } from '../../RTKQuery/historyApi';
+import { useAddInHistoryMutation } from '../../redux/RTKQuery/historyApi';
 import { useAppSelector } from '../../hooks/reduxHooks';
 import { SuggestList } from '../SuggestList';
 import { useDebounce } from '../../hooks/useDebounce';
