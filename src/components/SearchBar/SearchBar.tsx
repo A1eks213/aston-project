@@ -15,12 +15,12 @@ export function SearchBar() {
   const [addInHistory] = useAddInHistoryMutation();
   function handleSearch(e: React.MouseEvent) {
     e.preventDefault()
-    if (value.length === 0 && uid) {
-      navigate(`/`)
-    } else {
-      navigate(`/searchPage?search=${value}`)
-      addInHistory({ searchName: value, uid: uid })
-    }
+      if (value.length > 0 ) {
+        navigate(`/searchPage?search=${value}`)
+        if (uid) {
+          addInHistory({ searchName: value, uid: uid })
+        }
+      } 
   }
   const debouncedSearch = useDebounce(value, 500);
   return (

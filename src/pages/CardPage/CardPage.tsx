@@ -1,4 +1,4 @@
-import {Suspense, useContext} from 'react';
+import {Suspense} from 'react';
 import { useParams } from 'react-router-dom';
 import { useGetPlayerByIdQuery } from '../../RTKQuery/playersApi';
 import styles from './cardpage.module.css';
@@ -6,11 +6,8 @@ import { useAddInFavoritesMutation, useGetFavoritesByIdQuery, useRemoveFromFavor
 import { useAppSelector } from '../../hooks/reduxHooks';
 import { LikeBtn } from '../../components/LikeBtn';
 import { Loader } from '../../components/Loader';
-import { IsSearchBarVisible } from '../../context/SearchbarContext';
 
 export default function CardPage() {
-  const {setIsSearchBarVisible} = useContext(IsSearchBarVisible);
-  setIsSearchBarVisible(false)
   const {id} = useParams();
   const uid  = useAppSelector(state => state.user.uid)
   const { data: player, isLoading } = useGetPlayerByIdQuery(String(id));

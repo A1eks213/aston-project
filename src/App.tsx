@@ -1,6 +1,6 @@
-import React, { Suspense, lazy, useState } from 'react';
+import React, { Suspense, lazy} from 'react';
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { Header } from './components/Header';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
@@ -9,7 +9,6 @@ import { auth } from './firebase';
 import { Loader } from './components/Loader';
 import { SearchBar } from './components/SearchBar';
 import { SearchPage } from './pages/SearchPage';
-import { IsSearchBarVisible } from './context/SearchbarContext';
 const HomePage = lazy(() => import("../src/pages/HomePage/HomePage"));
 const LoginPage = lazy(() => import("../src/pages/LoginPage/LoginPage"));
 const RegisterPage = lazy(() => import("../src/pages/RegisterPage/RegisterPage"));
@@ -18,7 +17,9 @@ const HistoryPage = lazy(() => import("../src/pages/HistoryPage/HistoryPage"));
 const CardPage = lazy(() => import("../src/pages/CardPage/CardPage"));
 
 function App() {
-  const [isSearchBarVisible, setIsSearchBarVisible] = useState(true)
+  const location = useLocation();
+  const isHomePage = location.pathname === '/'
+  console.log(isHomePage)
   const dispatch = useDispatch();
   onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -31,9 +32,8 @@ function App() {
   })
   return (
     <div className="App">
-      <IsSearchBarVisible.Provider value={{setIsSearchBarVisible}}>
         <Header />
-        {isSearchBarVisible && <SearchBar />}
+        {isHomePage && <SearchBar />}
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route path='/login' element={<LoginPage />} />
@@ -45,7 +45,6 @@ function App() {
             <Route path='/searchPage' element={<SearchPage />} />
           </Routes>
         </Suspense>
-      </IsSearchBarVisible.Provider>
     </div>
   );
 }

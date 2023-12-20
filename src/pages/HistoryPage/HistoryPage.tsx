@@ -1,16 +1,12 @@
-import React, { useContext } from 'react';
 import { useGetHistoryQuery } from '../../RTKQuery/historyApi';
 import { useAppSelector } from '../../hooks/reduxHooks';
 import { Loader } from '../../components/Loader';
 import styles from './historypage.module.css';
 import { HistoryItem } from '../../components/HistoryItem';
-import { IsSearchBarVisible } from '../../context/SearchbarContext';
 
 export default function HistoryPage() {
   const uid = useAppSelector(state => state.user.uid);
   const {data: history, isLoading} = useGetHistoryQuery(String(uid));
-  const {setIsSearchBarVisible} = useContext(IsSearchBarVisible);
-  setIsSearchBarVisible(false)
   if (isLoading) return <Loader />
   return (
     <div className={styles.historyPage}>
