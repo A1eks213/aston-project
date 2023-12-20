@@ -1,0 +1,32 @@
+.searchBar{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 20px 20px 0 20px;
+    position: relative;
+}
+.searchInput, .searchButton {
+    background-color: white;
+    border: 2px solid #fdc52c;    ;
+}
+.searchInput {
+    font-family: 'FCBarcelona';
+    padding: 10px;
+    width: 270px;
+    border-right: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-size: 20px;
+    outline: none;
+}
+.searchButton {
+    width: 30px;
+    padding: 2px;
+    border-left: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.searchButtonImg {
+    width: 26px;
+    height: 26px;
+}

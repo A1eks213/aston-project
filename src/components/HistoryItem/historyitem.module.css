@@ -1,0 +1,24 @@
+.historyItem {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    padding: 10px;
+    border: 2px solid #fdc52c;
+    border-radius: 5px;
+    margin-bottom: 30px;
+
+}
+.historyLink {
+    width: 100%;
+    text-align: start;
+    color: white;
+    font-size: 24px;
+}
+.deleteHistoryButton {
+    background-color: transparent;
+    border: none;
+}
+.deleteHistoryButton img {
+    width: 30px;
+    height: 30px;
+}

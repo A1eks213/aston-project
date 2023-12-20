@@ -1,0 +1,11 @@
+.historyPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.notHistorySpan {
+    color: white;
+    font-size: 20px;
+}

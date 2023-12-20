@@ -1,15 +1,12 @@
-import React from 'react';
-import styles from './homepage.module.css';
 import { Card } from '../../components/Card';
 import { useGetPlayersQuery } from '../../RTKQuery/playersApi';
 import { Loader } from '../../components/Loader';
 export default function HomePage() {
-
-  // const { isAuth, email } = useAuth();
-  const { data: players, isLoading} = useGetPlayersQuery();
-  if (isLoading) return <Loader/>
+  const { data: players, isLoading } = useGetPlayersQuery();
+  if (isLoading) return <Loader />
   return (
-      <div className={styles.homePage}>
+    <div className='container'>
+      <div className='gridContainer'>
         {players && (
           <>
             {players.map((p) => (
@@ -19,5 +16,6 @@ export default function HomePage() {
           </>
         )}
       </div>
+    </div>
   );
 }
