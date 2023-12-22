@@ -1,13 +1,13 @@
 import styles from './likebtn.module.css';
 import { ResponseParams } from '../../redux/RTKQuery/favoritesApi';
 
-interface ILikeButton {
+interface Props {
   isFavorite: ResponseParams | undefined | null;
   width?: string
   height?: string,
   handleLike: (e: React.MouseEvent) => void
 }
-export function LikeBtn({isFavorite, width = '36px', height = '30px', handleLike }: ILikeButton) {
+export function LikeBtn({isFavorite, width = '36px', height = '30px', handleLike }: Props) {
   return (
     <button className={styles.likeBtn} onClick={handleLike}>
       <svg version="1.0" xmlns="http://www.w3.org/2000/svg"

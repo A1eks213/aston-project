@@ -3,13 +3,13 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { isEmailValid } from '../../utils/isEmailValid';
 
-interface IForm {
+interface Props {
   title: string,
   isLogin: boolean,
   handleClick: (email: string, password: string) => void
 }
 
-export function Form({ title, handleClick, isLogin }: IForm) {
+export function Form({ title, handleClick, isLogin }: Props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailValidate, setEmailValidate] = useState(' ');

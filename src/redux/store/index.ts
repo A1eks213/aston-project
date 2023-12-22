@@ -3,7 +3,7 @@ import userReducer from './slices/userSlice'
 import { playersApi } from '../RTKQuery/playersApi';
 import { favoritesApi } from '../RTKQuery/favoritesApi';
 import { historyApi } from '../RTKQuery/historyApi';
-import { listenerMiddleware } from '../middleware/middleware';
+import { listenerMiddleware } from '../middleware/authorizationListener';
 export const store = configureStore({
   reducer: {
     user: userReducer,

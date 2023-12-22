@@ -1,7 +1,7 @@
 import { createListenerMiddleware } from "@reduxjs/toolkit";
 import { setUser } from "../store/slices/userSlice";
 import { logoutAction } from "../actions/authorizationActions";
-export interface IAction{
+interface IAction{
     payload?: {
         email: string | null;
         uid: string | null;
