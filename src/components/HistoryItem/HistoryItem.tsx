@@ -5,11 +5,11 @@ import { useRemoveFromHistoryMutation } from '../../redux/RTKQuery/historyApi';
 import { useAppSelector } from '../../hooks/reduxHooks';
 import PropTypes from "prop-types";
 
-interface IHistoryItem {
+interface Props {
   searchValue: string,
   uniqId: string,
 }
-export function HistoryItem({searchValue, uniqId}: IHistoryItem) {
+export function HistoryItem({searchValue, uniqId}: Props) {
   const [removeFromHistory] = useRemoveFromHistoryMutation()
   const uid = useAppSelector(state => state.user.uid);
   return (

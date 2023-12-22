@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 import { useGetPlayersBySearchSuggestQuery } from '../../redux/RTKQuery/playersApi';
 import styles from './suggestlist.module.css';
 
-interface ISuggestList {
+interface Props {
     searchValue: string
 }
-export function SuggestList({searchValue}: ISuggestList) {
+export function SuggestList({searchValue}: Props) {
     const {data: players} = useGetPlayersBySearchSuggestQuery({name: searchValue});
     return (
         <>
