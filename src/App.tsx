@@ -1,20 +1,55 @@
+import React, { Suspense, lazy, useEffect } from 'react';
 import './App.css';
-import { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { Header } from './components/Header';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './firebase';
+import { Loader } from './components/Loader';
+import { SearchBar } from './components/SearchBar';
+import { SearchPage } from './pages/SearchPage';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Fallback } from './components/Fallback';
+import { setUser } from './redux/store/slices/userSlice';
 import { useAppDispatch } from './hooks/reduxHooks';
-import Routes from './routes/Routes';
-import { checkAuthStateAction } from './redux/actions/authorizationActions';
+const HomePage = lazy(() => import("../src/pages/HomePage/HomePage"));
+const LoginPage = lazy(() => import("../src/pages/LoginPage/LoginPage"));
+const RegisterPage = lazy(() => import("../src/pages/RegisterPage/RegisterPage"));
+const FavoritePage = lazy(() => import("../src/pages/FavoritePage/FavoritePage"));
+const HistoryPage = lazy(() => import("../src/pages/HistoryPage/HistoryPage"));
+const CardPage = lazy(() => import("../src/pages/CardPage/CardPage"));
 
 function App() {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
   const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(checkAuthStateAction())
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(setUser({
+          email: user.email,
+          uid: user.uid,
+        }
+        ))
+      }
+    })
   }, [dispatch])
   return (
     <div className="App">
       <ErrorBoundary FallbackComponent={Fallback}>
-        <Routes />
+        <Suspense fallback={<Loader />}>
+        <Header />
+        {isHomePage && <SearchBar />}
+          <Routes>
+            <Route path='/login' element={<LoginPage />} />
+            <Route path='/register' element={<RegisterPage />} />
+            <Route path='/favorites' element={<FavoritePage />} />
+            <Route path='/history' element={<HistoryPage />} />
+            <Route path='/' element={<HomePage />} />
+            <Route path='/player/:id' element={<CardPage />} />
+            <Route path='/searchPage' element={<SearchPage />} />
+            <Route path='*' element={<HomePage />} />
+          </Routes>
+        </Suspense>
       </ErrorBoundary>
     </div>
   );
