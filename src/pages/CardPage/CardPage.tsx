@@ -12,7 +12,7 @@ export default function CardPage() {
   const { data: player, isLoading } = useGetPlayerByIdQuery(String(id));
   const [addFavorites] = useAddInFavoritesMutation();
   const [removeFavorites] = useRemoveFromFavoritesMutation();
-  const { data: isFavorite} = useGetFavoritesByIdQuery({
+  const { data: isFavorite , isLoading: isLoadingFavorites} = useGetFavoritesByIdQuery({
     id: String(id),
     uid: String(uid),
   });
@@ -41,7 +41,7 @@ export default function CardPage() {
                 <p className={styles.position}>Позиция: {player.position}</p>
                 <p className={styles.price}>Цена:  {player.price} млн. €</p>
                 <p className={styles.age}>Возраст: {player.age}</p>
-              { uid && (<LikeBtn isFavorite={isFavorite} width='80px' height='65px' handleLike={handleLike} />)}
+              { uid && !isLoadingFavorites && (<LikeBtn isFavorite={isFavorite} width='80px' height='65px' handleLike={handleLike} />)}
               </div>
             </div>
           </div>

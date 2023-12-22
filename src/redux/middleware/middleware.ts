@@ -1,5 +1,6 @@
 import { createListenerMiddleware } from "@reduxjs/toolkit";
-import { removeUser, setUser } from "../store/slices/userSlice";
+import { setUser } from "../store/slices/userSlice";
+import { logoutAction } from "../actions/authorizationActions";
 export interface IAction{
     payload?: {
         email: string | null;
@@ -18,7 +19,7 @@ listenerMiddleware.startListening({
     }
 })
 listenerMiddleware.startListening({
-    actionCreator: removeUser,
+    actionCreator: logoutAction.fulfilled,
     effect: async () => {
         console.group("Выход")
         console.log('Пользователь вышел из аккаунта')
