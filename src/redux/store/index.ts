@@ -3,6 +3,7 @@ import userReducer from './slices/userSlice'
 import { playersApi } from '../RTKQuery/playersApi';
 import { favoritesApi } from '../RTKQuery/favoritesApi';
 import { historyApi } from '../RTKQuery/historyApi';
+import { listenerMiddleware } from '../middleware/middleware';
 export const store = configureStore({
   reducer: {
     user: userReducer,
@@ -15,6 +16,7 @@ export const store = configureStore({
     .concat(playersApi.middleware)
     .concat(favoritesApi.middleware)
     .concat(historyApi.middleware)
+    .concat(listenerMiddleware.middleware),
 })
 
 export type AppDispatch = typeof store.dispatch;

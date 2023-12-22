@@ -1,9 +1,8 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
 import './App.css';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { Header } from './components/Header';
 import { onAuthStateChanged } from 'firebase/auth';
-import { useDispatch } from 'react-redux';
 import { auth } from './firebase';
 import { Loader } from './components/Loader';
 import { SearchBar } from './components/SearchBar';
@@ -11,6 +10,7 @@ import { SearchPage } from './pages/SearchPage';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Fallback } from './components/Fallback';
 import { setUser } from './redux/store/slices/userSlice';
+import { useAppDispatch } from './hooks/reduxHooks';
 const HomePage = lazy(() => import("../src/pages/HomePage/HomePage"));
 const LoginPage = lazy(() => import("../src/pages/LoginPage/LoginPage"));
 const RegisterPage = lazy(() => import("../src/pages/RegisterPage/RegisterPage"));
@@ -21,16 +21,18 @@ const CardPage = lazy(() => import("../src/pages/CardPage/CardPage"));
 function App() {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
-  const dispatch = useDispatch();
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      dispatch(setUser({
-        email: user.email,
-        uid: user.uid,
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(setUser({
+          email: user.email,
+          uid: user.uid,
+        }
+        ))
       }
-      ))
-    }
-  })
+    })
+  }, [dispatch])
   return (
     <div className="App">
       <ErrorBoundary FallbackComponent={Fallback}>
