@@ -14,7 +14,7 @@ export function Card({ player }: ICard) {
   const [addFavorites] = useAddInFavoritesMutation();
   const [removeFavorites] = useRemoveFromFavoritesMutation();
   const uid = useAppSelector(state => state.user.uid)
-  const { data: isFavorite} = useGetFavoritesByIdQuery({
+  const { data: isFavorite, isLoading} = useGetFavoritesByIdQuery({
     id: player.id,
     uid: String(uid),
   });
@@ -36,7 +36,7 @@ export function Card({ player }: ICard) {
           <p className={styles.position}>Позиция: {player.position}</p>
           <p className={styles.price}>Цена:  {player.price} млн. €</p>
           <p className={styles.age}>Возраст: {player.age} </p>
-          {uid && (<LikeBtn isFavorite={isFavorite} handleLike={handleLike} />)}
+          {uid && !isLoading && (<LikeBtn isFavorite={isFavorite} handleLike={handleLike} />)}
         </div>
       </div>
     </Link>

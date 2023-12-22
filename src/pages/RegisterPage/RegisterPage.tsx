@@ -1,17 +1,11 @@
-import { useNavigate } from 'react-router-dom';
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Form } from '../../components/Form';
-import { auth } from '../../firebase';
+import { registerAction } from '../../redux/actions/authorizationActions';
+import { useAppDispatch } from '../../hooks/reduxHooks';
 
 export default function RegisterPage() {
-  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const handleregister = (email: string, password: string) => {
-    createUserWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      navigate('/');
-    })
-    .catch(() => alert('Пользователь с данным email уже зарегестрирован!')) 
-
+    dispatch(registerAction({email, password}))
   }
   return (
     <Form

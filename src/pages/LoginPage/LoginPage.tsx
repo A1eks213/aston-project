@@ -1,25 +1,17 @@
-import { useNavigate } from 'react-router-dom';
-import { signInWithEmailAndPassword } from "firebase/auth";
 import { Form } from '../../components/Form';
-import { auth } from '../../firebase';
-
+import { useAppDispatch } from '../../hooks/reduxHooks';
+import { loginAction } from '../../redux/actions/authorizationActions';
 
 export default function LoginPage() {
-  const navigate = useNavigate(); 
+  const dispatch = useAppDispatch()
   const handleLogin = (email: string, password: string) => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then(({user}) => {
-        navigate('/');
-      })
-      .catch(() => alert('Неверно введены данные!'))
-
-
+    dispatch(loginAction({email, password}))
   }
   return (
     <Form
       isLogin={true}
       title='Войти'
-      handleClick={handleLogin} 
+      handleClick={handleLogin}
     />
   );
 }

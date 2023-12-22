@@ -3,10 +3,8 @@ import { Link } from 'react-router-dom'
 import logo from '../../images/logo.png';
 import { useAuth } from '../../hooks/useAuth';
 import { useAppDispatch } from '../../hooks/reduxHooks';
-import { signOut } from 'firebase/auth';
-import { auth } from '../../firebase';
-import { removeUser } from '../../redux/store/slices/userSlice';
-export function Header() {
+import { logoutAction } from '../../redux/actions/authorizationActions';
+export default function Header() {
   const { isAuth, email } = useAuth();
   const dispatch = useAppDispatch();
   return (
@@ -27,8 +25,7 @@ export function Header() {
             <button
               className={styles.navItem}
               onClick={() => {
-                signOut(auth)
-                dispatch(removeUser())
+                dispatch(logoutAction())
               }}>
               Выйти
             </button>
