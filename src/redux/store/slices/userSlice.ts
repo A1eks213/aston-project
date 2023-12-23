@@ -1,7 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
-const initialState = {
+
+interface IInitialState {
+    email: null | string,
+    uid: null | string,
+    authStatus: 'LOAD' | 'SUCCESS',
+}
+const initialState: IInitialState = {
     email: null,
     uid: null,
+    authStatus: 'LOAD',
 };
 const userSlice = createSlice({
     name: 'user',
@@ -10,11 +17,13 @@ const userSlice = createSlice({
         setUser(state, action) {
             state.email = action.payload.email;
             state.uid = action.payload.uid;
+            state.authStatus = 'SUCCESS';
 
         },
         removeUser(state) {
             state.email = null;
             state.uid = null;
+            state.authStatus = 'SUCCESS';
         },
     }
 })
