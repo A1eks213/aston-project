@@ -21,7 +21,7 @@
 
 - Есть рендеринг списков: [HomePage](https://github.com/A1eks213/aston-project/blob/main/src/pages/HomePage/HomePage.tsx), [FavoritePage](https://github.com/A1eks213/aston-project/blob/main/src/pages/FavoritePage/FavoritePage.tsx)
 - Реализована хотя бы одна форма: [Form](https://github.com/A1eks213/aston-project/blob/main/src/components/Form/Form.tsx).
-- Есть применение Контекст API:  НЕ РЕАЛИЗОВАНО (нет данных, для которых нужно использовать контекст).
+- Есть применение Контекст API:  [ThemeContext](https://github.com/A1eks213/aston-project/blob/main/src/context/ThemeContext.tsx) для смены темы header приложения
 - Есть применение предохранителя: использование библиотеки 'react-error-boundary' в компоненте [App](https://github.com/A1eks213/aston-project/blob/main/src/App.tsx)
 - Есть хотя бы один кастомный хук: [useDebounce](https://github.com/A1eks213/aston-project/blob/main/src/hooks/useDebounce.ts), [useAuth](https://github.com/A1eks213/aston-project/blob/main/src/hooks/useAuth.ts).
 - Хотя бы несколько компонентов используют PropTypes: [HistoryItem](https://github.com/A1eks213/aston-project/blob/main/src/components/HistoryItem/HistoryItem.tsx), [Card](https://github.com/A1eks213/aston-project/blob/main/src/components/Card/Card.tsx). 
