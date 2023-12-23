@@ -3,9 +3,10 @@ import { useAppSelector } from '../../hooks/reduxHooks';
 import { Loader } from '../../components/Loader';
 import styles from './historypage.module.css';
 import { HistoryItem } from '../../components/HistoryItem';
+import { userSelectors } from '../../redux/store';
 
 export default function HistoryPage() {
-  const uid = useAppSelector(state => state.user.uid);
+  const  uid = useAppSelector(userSelectors.uid);
   const {data: history, isLoading} = useGetHistoryQuery(String(uid));
   if (isLoading) return <Loader />
   return (

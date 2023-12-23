@@ -5,6 +5,7 @@ import { IPlayer } from '../../redux/RTKQuery/playersApi';
 import { useAddInFavoritesMutation, useGetFavoritesByIdQuery, useRemoveFromFavoritesMutation } from '../../redux/RTKQuery/favoritesApi';
 import { useAppSelector } from '../../hooks/reduxHooks';
 import PropTypes from "prop-types";
+import { userSelectors } from '../../redux/store';
 
 type ICard = {
   player: IPlayer
@@ -13,7 +14,7 @@ type ICard = {
 export function Card({ player }: ICard) {
   const [addFavorites] = useAddInFavoritesMutation();
   const [removeFavorites] = useRemoveFromFavoritesMutation();
-  const uid = useAppSelector(state => state.user.uid)
+  const  uid = useAppSelector(userSelectors.uid);
   const { data: isFavorite} = useGetFavoritesByIdQuery({
     id: player.id,
     uid: String(uid),

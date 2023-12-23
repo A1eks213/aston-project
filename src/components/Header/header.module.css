@@ -1,18 +1,28 @@
-.header {
+.header, .headerSpecial {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding: 20px;
+}
+.header {
     background: linear-gradient(90deg,#cd122d 0,#154284);
 }
-.logo {
+.headerSpecial {
+    background: #fdc52c;
+}
+.logo, .logoSpecial {
     font-family: 'FCBarcelona';
     display: flex;
     font-size: 40px;
-    color: #fdc52c;
     cursor: pointer;
     align-items: center;
+}
+.logo {
+    color: #fdc52c;
+}
+.logoSpecial {
+    color: #121121;
 }
 .logoImg {
     max-width: 50px;
@@ -22,19 +32,26 @@
     display: flex;
 
 }
-.navItem {
+.navItem, .navItemSpecial {
     margin-right: 20px;
     padding: 10px 20px;
     font-size: 20px;
-    background-color: #fdc52c;
-    color: #121121;
-    border: 1px solid #fdc52c;
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
 }
-.navItem:last-child {
+.navItem:last-child, .navItemSpecial:last-child {
     margin-right: 0;
+}
+.navItem {
+    background-color: #fdc52c;
+    color: #121121;
+    border: 1px solid #fdc52c;
+}
+.navItemSpecial {
+    background-color: #121121;
+    color: #fdc52c;
+    border: 1px solid #121121;
 }
 .avatar {
     display: inline-block;

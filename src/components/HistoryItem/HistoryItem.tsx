@@ -4,6 +4,7 @@ import deleteImg from '../../images/delete.png'
 import { useRemoveFromHistoryMutation } from '../../redux/RTKQuery/historyApi';
 import { useAppSelector } from '../../hooks/reduxHooks';
 import PropTypes from "prop-types";
+import { userSelectors } from '../../redux/store';
 
 interface Props {
   searchValue: string,
@@ -11,7 +12,7 @@ interface Props {
 }
 export function HistoryItem({searchValue, uniqId}: Props) {
   const [removeFromHistory] = useRemoveFromHistoryMutation()
-  const uid = useAppSelector(state => state.user.uid);
+  const  uid = useAppSelector(userSelectors.uid);
   return (
     <div className={styles.historyItem}>
       <Link to={`/searchPage?search=${searchValue}`} className={styles.historyLink}>{searchValue}</Link>

@@ -6,11 +6,12 @@ import { useAddInHistoryMutation } from '../../redux/RTKQuery/historyApi';
 import { useAppSelector } from '../../hooks/reduxHooks';
 import { SuggestList } from '../SuggestList';
 import { useDebounce } from '../../hooks/useDebounce';
+import { userSelectors } from '../../redux/store';
 
 export function SearchBar() {
   const [value, setValue] = useState('');
   const [isSuggestVisible, setIsSuggestVisible] = useState(false);
-  const uid = useAppSelector(state => state.user.uid);
+  const  uid = useAppSelector(userSelectors.uid);
   const navigate = useNavigate();
   const [addInHistory] = useAddInHistoryMutation();
   function handleSearch(e: React.MouseEvent) {
